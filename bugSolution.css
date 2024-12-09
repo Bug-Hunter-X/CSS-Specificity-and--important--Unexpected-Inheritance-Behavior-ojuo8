@@ -1,0 +1,21 @@
+The issue can be resolved by adjusting the specificity and avoiding unnecessary use of `!important`.  One possible solution involves restructuring the CSS to ensure clarity and avoid unexpected behavior:
+
+```css
+div {
+  font-size: 16px;
+}
+
+p {
+  font-size: 18px;
+}
+
+.special p {
+  font-size: 14px;
+}
+
+.another-special p {
+  font-size: 20px !important; 
+}
+```
+
+By using `!important` on the `.another-special p` selector, we override both the styles applied to the `p` element and the style applied to `.special p`. This solution is more straightforward, and it removes the ambiguity encountered in the initial example.  The use of `!important` should be carefully considered; often, a better CSS structure can resolve the need for it, leading to more maintainable code.
