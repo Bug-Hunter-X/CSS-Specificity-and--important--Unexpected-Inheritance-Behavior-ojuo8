@@ -1,0 +1,21 @@
+The following CSS code snippet demonstrates an unusual issue related to specificity and inheritance:
+
+```css
+div {
+  font-size: 16px;
+}
+
+p {
+  font-size: 18px;
+}
+
+.special p {
+  font-size: 14px !important;
+}
+
+.another-special p {
+  font-size: 20px;
+}
+```
+
+In this example, the `.special p` selector uses `!important` to override the style set for the `p` element, successfully reducing the font size to 14px. However, the `.another-special p` selector, without `!important`, unexpectedly does *not* override the style set by the `p` selector or the `!important` rule in `.special p`. The font size remains at 14px, rather than increasing to 20px. This behavior is counter-intuitive and demonstrates a potential misunderstanding of CSS specificity and inheritance in conjunction with `!important`.
